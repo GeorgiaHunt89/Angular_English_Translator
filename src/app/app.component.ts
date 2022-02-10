@@ -7,7 +7,15 @@ import { TranslateService } from "./translate.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-
-    constructor(private translateService: TranslateService) {}
-
+    text: string;
+    translatedText: string;
+    
+    
+      constructor(private translateService: TranslateService) {}
+    
+      submit(){
+        this.translateService.translate(this.text).subscribe((result)=>{
+          this.translatedText = result;
+        });
+      }
 }
